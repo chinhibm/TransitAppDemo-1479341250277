@@ -1,8 +1,15 @@
+---
+declared-services:
+  Conversation-cvo:
+    label: conversation
+    plan: free
 applications:
-- path: .
-  memory: 256M
+- name: TransitAppDemo
+  command: npm start
+  path: .
+  memory: 512M
   instances: 1
-  domain: mybluemix.net
-  name: TransitAppDemo
-  host: TransitAppDemo
-  disk_quota: 1024M
+  services:
+  - Conversation-cvo
+  env:
+    NPM_CONFIG_PRODUCTION: false
